@@ -37,8 +37,73 @@
 //
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
-// =============================================================================
+
 
 #include <iostream>
 using namespace std;
 
+
+double calculateSum(const double arr[], int size) {
+    double sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+double calculateAverage(const double arr[], int size) {
+    double sum = calculateSum(arr, size);
+    return sum / size;
+}
+
+double findMaximum(const double arr[], int size) {
+    double maxVal = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+        }
+    }
+    return maxVal;
+}
+
+double findMinimum(const double arr[], int size) {
+    double minVal = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < minVal) {
+            minVal = arr[i];
+        }
+    }
+    return minVal;
+}
+
+int main() {
+    int N;
+
+    cout << "How many numbers? ";
+    cin >> N;
+
+    if (N <= 0) {
+        cout << "Error: Number of elements must be a positive integer." << endl;
+        return 1;
+    }
+
+    double numbers[N];
+
+    for (int i = 0; i < N; i++) {
+        cout << "Enter number " << (i + 1) << ": ";
+        cin >> numbers[i];
+    }
+
+    double sum = calculateSum(numbers, N);
+    double average = calculateAverage(numbers, N);
+    double maximum = findMaximum(numbers, N);
+    double minimum = findMinimum(numbers, N);
+
+    cout << "\nResults:" << endl;
+    cout << "  Sum: "<< sum << endl;
+    cout << "  Average: " << average << endl;
+    cout << "  Maximum: " << maximum << endl;
+    cout << "  Minimum: " << minimum << endl;
+
+    return 0;
+}

@@ -41,8 +41,43 @@
 
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
-// =============================================================================
+
 
 #include <iostream>
 using namespace std;
 
+
+char getGrade(double score) {
+    if (score < 0 || score > 100) {
+        return '\0';
+    }
+
+    if (score >= 80) {
+        return 'A';
+    } else if (score >= 70) {
+        return 'B';
+    } else if (score >= 60) {
+        return 'C';
+    } else if (score >= 50) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+int main() {
+    double score;
+    
+    cout << "Enter student score: ";
+    cin >> score;
+
+    char grade = getGrade(score);
+
+    if (grade == '\0') {
+        cout << "Error: Invalid score! Please enter a score between 0 and 100." << endl;
+    } else {
+        cout << "Grade: " << grade << endl;
+    }
+
+    return 0;
+}
